@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+
+      nav {
+        background-color: #f2f2f2;
+        text-align: center;
+      }
+
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav li {
+        display: inline-block;
+        margin-right: 10px;
+      }
+
+      nav li a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+      }
+
+      nav li a:hover {
+        background-color: #333;
+        color: white;
+      }
+
+      main {
+        margin: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      article {
+        flex-basis: 48%;
+        margin-bottom: 20px;
+      }
+
+      article h2 {
+        font-size: 1.5em;
+        margin-top: 0;
+      }
+
+      article p {
+        text-align: justify;
+      }
+
+      aside {
+        flex-basis: 30%;
+        margin: 20px;
+      }
+
+      aside h3 {
+        font-size: 1.2em;
+      }
+
+      aside ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      aside li {
+        margin-bottom: 10px;
+      }
+
+      aside li a {
+        text-decoration: none;
+        color: #333;
+      }
+
+      aside li a:hover {
+        color: #f2f2f2;
+      }
+
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>My Blog</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <main>
+      <article>
+        <h2>My First Blog Post</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius justo in nunc sagittis tristique. Donec scelerisque urna massa, vitae bibendum ex posuere non. Pellentesque lobortis felis vel enim elementum, et bibendum libero faucibus. Nulla semper urna vel sapien aliquet commodo. Vivamus rutrum euismod mauris, sit amet aliquet magna bibendum nec. Integer faucibus bibendum urna, vel commodo eros ultrices at. Praesent rutrum velit vel dui commodo, sed viverra mauris varius. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis id mauris euismod, ultrices nisi vel, mollis nibh.</p>
+      </article>
+      <article>
+        <h2>My Second Blog Post</h2>
+        <p>Etiam porta tortor id dolor congue, non rhoncus magna sagittis. Morbi imperdiet sapien a tortor ultricies, euismod interdum quam auctor. Nullam non tincidunt mauris. Vestibulum euismod enim sed dui tempor tincidunt. Duis a elit urna. Nam ut quam semper, tempor est in, dictum nulla. Donec quis libero magna. Proin fringilla quam eget purus aliquam, ac hendrerit velit tristique. Suspendisse vel eleifend justo. Aenean faucibus urna in massa vulputate venenatis. Donec a tortor ante.</p>
+      </article>
+    </main>
+    <aside>
+      <h3>Recent Posts</h3>
+      <ul>
+        <li><a href="#">My Third Blog Post</a></li>
+        <li><a href="#">My Fourth Blog Post</a></li>
+        <li><a href="#">My Fifth Blog Post</a></li>
+      </ul>
+    </aside>
+    <footer>
+      <p>&copy; 2023 My Blog. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

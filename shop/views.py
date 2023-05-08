@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
+from django.http import HttpResponse
 
 from .models import Product, Category
 from cart.views import _cart_id
@@ -11,11 +12,12 @@ from django.contrib import messages
 from orders.models import OrderProduct
 from .models import ProductGallery
 
+
 def home(request):
     products = Product.objects.all().filter(is_available=True)
-    
+
     context = {
-        'products' : products,
+        'products': products,
     }
     return render(request, 'shop/index.html', context)
 
@@ -23,7 +25,6 @@ def home(request):
 def shop(request, category_slug=None):
     categories = None
     products = None
-    
 
     if category_slug != None:
         categories = get_object_or_404(Category, slug=category_slug)
@@ -32,23 +33,22 @@ def shop(request, category_slug=None):
         page = request.GET.get('page')
         paged_products = paginator.get_page(page)
         products_count = products.count()
-        
+
     else:
         products = Product.objects.all().filter(is_available=True)
         paginator = Paginator(products, 6)
         page = request.GET.get('page')
         paged_products = paginator.get_page(page)
         products_count = products.count()
-        
-    
+
     for product in products:
         reviews = ReviewRating.objects.order_by('-updated_at').filter(product_id=product.id, status=True)
 
     context = {
         'category_slug': category_slug,
-        'products' : paged_products,
+        'products': paged_products,
         'products_count': products_count,
-        
+
     }
     return render(request, 'shop/shop/shop.html', context)
 
@@ -56,7 +56,7 @@ def shop(request, category_slug=None):
 def product_details(request, category_slug, product_details_slug):
     try:
         single_product = Product.objects.get(category__slug=category_slug, slug=product_details_slug)
-        
+
         in_cart = CartItem.objects.filter(cart__cart_id=_cart_id(request), product=single_product).exists()
     except Exception as e:
         return e
@@ -75,9 +75,9 @@ def product_details(request, category_slug, product_details_slug):
     context = {
         'single_product': single_product,
         'in_cart': in_cart,
-        'orderproduct':orderproduct,
+        'orderproduct': orderproduct,
         'reviews': reviews,
-        'product_gallery':product_gallery,
+        'product_gallery': product_gallery,
     }
     return render(request, 'shop/shop/product_details.html', context)
 
@@ -88,12 +88,11 @@ def search(request):
     paged_products = None
     if 'keyword' in request.GET:
         keyword = request.GET['keyword']
-        if keyword :
+        if keyword:
             products = Product.objects.filter(Q(description__icontains=keyword) | Q(name__icontains=keyword))
-            
+
             products_count = products.count()
-            
-    
+
     context = {
         'products': products,
         'products_count': products_count,
@@ -101,12 +100,11 @@ def search(request):
     return render(request, 'shop/shop/search.html', context)
 
 
-
 def review(request, product_id):
     url = request.META.get('HTTP_REFERER')
     if request.method == 'POST':
         try:
-            reviews = ReviewRating.objects.get(user__id=request.user.id,product__id=product_id)
+            reviews = ReviewRating.objects.get(user__id=request.user.id, product__id=product_id)
             form = ReviewForm(request.POST, instance=reviews)
             form.save()
             messages.success(request, 'Thank you, your review updated!')
@@ -123,3 +121,4 @@ def review(request, product_id):
                 data.save()
                 messages.success(request, 'Thank you, your review Posted!')
                 return redirect(url)
+

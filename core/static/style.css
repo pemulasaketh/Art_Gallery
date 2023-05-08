@@ -1,0 +1,113 @@
+/* Set default styles for the page */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style the header */
+header {
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+  font-size: 2em;
+  color: #333333;
+  margin: 0;
+}
+
+/* Style the navigation menu */
+nav {
+  background-color: #333333;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px;
+  transition: all 0.2s;
+}
+
+nav li a:hover {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* Style the main content area */
+main {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+article {
+  flex-basis: 70%;
+  margin-right: 20px;
+}
+
+article h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+article p {
+  font-size: 1em;
+  line-height: 1.5;
+  color: #666666;
+}
+
+aside {
+  flex-basis: 30%;
+}
+
+aside h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+aside li {
+  margin-bottom: 10px;
+}
+
+aside li a {
+  color: #333333;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: all 0.2s;
+}
+
+aside li a:hover {
+  color: #ff5a5f;
+}
+
+/* Style the footer */
+footer {
+  background-color: #333333;
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+}
